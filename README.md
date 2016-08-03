@@ -19,6 +19,21 @@ A Dynamic Todo app using pure React and firebase as the backend.It allows user t
         
         
        
+Screenshot1:
+
 <img src = "https://github.com/anil26/TodoApp/blob/master/todo1.png"/>
+
+Screenshot2:
+
+<img src = "https://github.com/anil26/TodoApp/blob/master/todo2.png"/>
+
+Screenshot2:
+
+<img src = "https://github.com/anil26/TodoApp/blob/master/todo3.png"/>
+
+
+
+
+
 
 
