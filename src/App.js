@@ -8,7 +8,7 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state={
-      todos:[],
+      todos:{},
       doneTaskFilter : false,
       notDoneTaskFilter : false
     }
@@ -26,13 +26,13 @@ class App extends Component {
   }
   addTask(){
     var newTask=this.refs.input.value;
-    debugger;
     this.refs.input.value="";
     if(newTask.trim()=="")
       return;
+    var time=(new Date()).toISOString();
     var postData={
       "title" : newTask,
-      "time" : (new Date()).toISOString(),
+      "time" : time,
       "done" : false
     }
     var newPostKey = firebase.database().ref().child('todos').push().key;
@@ -41,7 +41,7 @@ class App extends Component {
     var that=this;
     firebase.database().ref().update(updates).then(function(snapshot){
       var todos=that.state.todos;
-      todos.newPostKey=postData;
+      todos[newPostKey]=postData;
       that.setState({
         todos : todos
       });
@@ -63,7 +63,6 @@ class App extends Component {
   }
   removeTodo(id){
     var that=this;
-    debugger;
     firebase.database().ref('/todos/' + id ).remove().then(function(){
       var todos=that.state.todos;
       delete todos[id];
@@ -74,8 +73,6 @@ class App extends Component {
     });
   }
   onClickDoneTask(){
-    console.log("clicked");
-
     if(this.refs.donetask.checked==true){
       this.refs.notdonetask.checked=false;
       this.setState({
@@ -93,7 +90,6 @@ class App extends Component {
 
   }
   onClickNotDoneTask(){
-    console.log("clicket not");
     if(this.refs.notdonetask.checked== true){
         this.refs.donetask.checked=false;
         this.setState({
