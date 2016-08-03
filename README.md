@@ -18,5 +18,5 @@ A Dynamic Todo app using pure React and firebase as the backend.It allows user t
         
         
         
-        
-![alt tag](TodoApp/todo1.png)
+       
+![alt tag](https://raw.githubusercontent.com/anil26/TodoApp/blob/master/todo1.png)
